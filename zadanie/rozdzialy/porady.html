@@ -157,52 +157,100 @@
                 <h2>🧠 Quiz wiedzy o roślinach</h2>
                 <p>Sprawdź swoją wiedzę!</p>
                 
-                <div id="quiz-pytania">
-                    <div class="pytanie-quiz">
-                        <h3>Pytanie 1: Co oznaczają żółte liście u rośliny?</h3>
-                        <div class="odpowiedzi-quiz">
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
-                                A) Najczęściej przelanie
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                B) Zawsze brak wody
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                C) Za dużo światła
-                            </div>
-                        </div>
-                    </div>
+                <section id="quiz" class="quiz-kontener">
+    <h2>🧠 Quiz wiedzy o roślinach</h2>
+    <p>Sprawdź swoją wiedzę!</p>
+    
+    <div id="quiz-pytania">
 
-                    <div class="pytanie-quiz">
-                        <h3>Pytanie 2: Jak często należy nawozić rośliny zimą?</h3>
-                        <div class="odpowiedzi-quiz">
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                A) Tak samo jak latem
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
-                                B) W ogóle lub znacznie rzadziej
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                C) Częściej niż latem
-                            </div>
-                        </div>
-                    </div>
+        <!-- PYTANIE 1 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 1: Co oznaczają żółte liście u rośliny?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="true">A) Najczęściej przelanie</div>
+                <div class="odpowiedz" data-correct="false">B) Zawsze brak wody</div>
+                <div class="odpowiedz" data-correct="false">C) Za dużo światła</div>
+            </div>
+        </div>
 
-                    <div class="pytanie-quiz">
-                        <h3>Pytanie 3: Która roślina najlepiej oczyszcza powietrze?</h3>
-                        <div class="odpowiedzi-quiz">
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                A) Kaktus
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
-                                B) Skrzydłokwiat
-                            </div>
-                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
-                                C) Begonia
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- PYTANIE 2 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 2: Jak często należy nawozić rośliny zimą?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="false">A) Tak samo jak latem</div>
+                <div class="odpowiedz" data-correct="true">B) W ogóle lub znacznie rzadziej</div>
+                <div class="odpowiedz" data-correct="false">C) Częściej niż latem</div>
+            </div>
+        </div>
+
+        <!-- PYTANIE 3 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 3: Która roślina najlepiej oczyszcza powietrze?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="false">A) Kaktus</div>
+                <div class="odpowiedz" data-correct="true">B) Skrzydłokwiat</div>
+                <div class="odpowiedz" data-correct="false">C) Begonia</div>
+            </div>
+        </div>
+
+        <!-- NOWE PYTANIE 4 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 4: Jakie podłoże preferuje większość sukulentów?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="true">A) Przepuszczalne, piaszczyste</div>
+                <div class="odpowiedz" data-correct="false">B) Ciężkie, torfowe</div>
+                <div class="odpowiedz" data-correct="false">C) Zawsze czysta ziemia uniwersalna</div>
+            </div>
+        </div>
+
+        <!-- NOWE PYTANIE 5 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 5: Co jest najczęstszą przyczyną gnicia korzeni?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="false">A) Za dużo nawozu</div>
+                <div class="odpowiedz" data-correct="true">B) Zbyt częste podlewanie</div>
+                <div class="odpowiedz" data-correct="false">C) Zbyt dużo światła</div>
+            </div>
+        </div>
+
+        <!-- NOWE PYTANIE 6 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 6: Jaki poziom światła preferują rośliny cieniolubne?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="false">A) Bezpośrednie pełne słońce</div>
+                <div class="odpowiedz" data-correct="true">B) Jasne, rozproszone światło</div>
+                <div class="odpowiedz" data-correct="false">C) Całkowity brak światła</div>
+            </div>
+        </div>
+
+        <!-- NOWE PYTANIE 7 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 7: Co pomaga w walce z przędziorkami?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="true">A) Zwiększenie wilgotności</div>
+                <div class="odpowiedz" data-correct="false">B) Zmniejszenie wilgotności</div>
+                <div class="odpowiedz" data-correct="false">C) Zraszanie wodą z cukrem</div>
+            </div>
+        </div>
+
+        <!-- NOWE PYTANIE 8 -->
+        <div class="pytanie-quiz">
+            <h3>Pytanie 8: Co należy zrobić przy przesadzaniu rośliny?</h3>
+            <div class="odpowiedzi-quiz">
+                <div class="odpowiedz" data-correct="true">A) Poluzować bryłę korzeniową</div>
+                <div class="odpowiedz" data-correct="false">B) Zostawić korzenie ściśnięte</div>
+                <div class="odpowiedz" data-correct="false">C) Podlać roślinę przed wyjęciem z doniczki</div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="wynik-quiz" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 8px;">
+        <h3>🎉 Twój wynik: <span id="punkty-quiz">0</span>/8</h3>
+        <p id="ocena-quiz"></p>
+    </div>
+</section>
+
                 
                 <div id="wynik-quiz" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 8px;">
                     <h3>🎉 Twój wynik: <span id="punkty-quiz">0</span>/3</h3>
@@ -242,71 +290,67 @@
 
     <script src="../skrypty.js"></script>
     <script>
-        function pokazSzczegoly(element) {
-            const szczegoly = element.querySelector('.szczegoly-problemu');
-            szczegoly.classList.toggle('widoczne');
-        }
-        
-        let poprawneOdpowiedzi = 0;
-        let udzieloneOdpowiedzi = 0;
-        
-        function sprawdzOdpowiedz(element, czyPoprawna) {
-            const rodzic = element.parentElement;
-            const wszystkieOdpowiedzi = rodzic.querySelectorAll('.odpowiedz');
-            
-            // Jeśli już odpowiedziano, nie reaguj
-            if (element.classList.contains('poprawna') || element.classList.contains('bledna')) {
-                return;
+let poprawneOdpowiedzi = 0;
+let udzieloneOdpowiedzi = 0;
+
+function sprawdzOdpowiedz(element) {
+
+    const czyPoprawna = element.dataset.correct === "true";
+
+    const rodzic = element.parentElement;
+    const wszystkie = rodzic.querySelectorAll('.odpowiedz');
+
+    // blokada kliknięć
+    wszystkie.forEach(o => o.style.pointerEvents = 'none');
+
+    if (czyPoprawna) {
+        element.classList.add('poprawna');
+        poprawneOdpowiedzi++;
+    } else {
+        element.classList.add('bledna');
+
+        // automatyczne zaznaczenie poprawnej
+        wszystkie.forEach(o => {
+            if (o.dataset.correct === "true") {
+                o.classList.add('poprawna');
             }
-            
-            // Zablokuj wszystkie odpowiedzi w tym pytaniu
-            wszystkieOdpowiedzi.forEach(odp => {
-                odp.style.pointerEvents = 'none';
-            });
-            
-            if (czyPoprawna) {
-                element.classList.add('poprawna');
-                poprawneOdpowiedzi++;
-            } else {
-                element.classList.add('bledna');
-                // Pokaż poprawną odpowiedź
-                wszystkieOdpowiedzi.forEach(odp => {
-                    if (odp.onclick.toString().includes('true')) {
-                        odp.classList.add('poprawna');
-                    }
-                });
-            }
-            
-            udzieloneOdpowiedzi++;
-            
-            // Jeśli wszystkie pytania odpowiedziane, pokaż wynik
-            if (udzieloneOdpowiedzi === 3) {
-                pokazWynikQuizu();
-            }
-        }
-        
-        function pokazWynikQuizu() {
-            const wynikDiv = document.getElementById('wynik-quiz');
-            const punktySpan = document.getElementById('punkty-quiz');
-            const ocenaP = document.getElementById('ocena-quiz');
-            
-            punktySpan.textContent = poprawneOdpowiedzi;
-            
-            let ocena;
-            if (poprawneOdpowiedzi === 3) {
-                ocena = 'Doskonale! Jesteś ekspertem od roślin! 🌟';
-            } else if (poprawneOdpowiedzi === 2) {
-                ocena = 'Bardzo dobrze! Znasz się na rzeczy! 👍';
-            } else if (poprawneOdpowiedzi === 1) {
-                ocena = 'Nieźle, ale warto jeszcze poczytać! 📚';
-            } else {
-                ocena = 'Warto przejrzeć poradnik od początku! 🌱';
-            }
-            
-            ocenaP.textContent = ocena;
-            wynikDiv.style.display = 'block';
-            wynikDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    </script>
+        });
+    }
+
+    udzieloneOdpowiedzi++;
+
+    const liczbaPytan = document.querySelectorAll('.pytanie-quiz').length;
+
+    if (udzieloneOdpowiedzi === liczbaPytan) {
+        pokazWynikQuizu();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.odpowiedz').forEach(el => {
+        el.addEventListener('click', () => sprawdzOdpowiedz(el));
+    });
+});
+
+function pokazWynikQuizu() {
+    const wynikDiv = document.getElementById('wynik-quiz');
+    const punktySpan = document.getElementById('punkty-quiz');
+    const ocenaP = document.getElementById('ocena-quiz');
+
+    punktySpan.textContent = poprawneOdpowiedzi;
+
+    let ocena;
+    if (poprawneOdpowiedzi === 8) ocena = 'Perfekcyjnie! Ogrodniczy geniusz!';
+    else if (poprawneOdpowiedzi >= 6) ocena = 'Bardzo dobrze! Znasz się!';
+    else if (poprawneOdpowiedzi >= 3) ocena = 'Może być, ale zawsze można lepiej.';
+    else ocena = 'Przeglądnij poradnik jeszcze raz. Rośliny ci wybaczą.';
+
+    ocenaP.textContent = ocena;
+
+    wynikDiv.style.display = 'block';
+    wynikDiv.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
 </body>
 </html>
