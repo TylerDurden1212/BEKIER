@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poradnik Hodowli Roślin Doniczkowych</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!--<link rel="stylesheet" href="./css/style-vintage.css">-->
+   <!-- Komentujemy odwołanie do pliku *.css-->
+    <!--<link rel="stylesheet" href="./css/style-ciemny.css">  -->
+    <!--<link rel ="stylesheet" href ="./css/style-kolorowy.css" -->
+</head>
+<body>
+    <div id="animowane-tlo"></div>
+    
+    <header>
+        <div class="naglowek-container">
+            <h1>🌿 Kompleksowy Poradnik Hodowli Roślin Doniczkowych</h1>
+            <p class="podtytul">Wszystko czego potrzebujesz by stworzyć zieloną oazę w swoim domu</p>
+        </div>
+        <nav id="menu-glowne">
+            <ul>
+                <li><a href="index.html" class="aktywny">Start</a></li>
+                <li><a href="rozdzialy/podstawy.html">Podstawy</a></li>
+                <li><a href="rozdzialy/galeria.html">Galeria Roślin</a></li>
+                <li><a href="rozdzialy/kalkulator.html">Kalkulatory</a></li>
+                <li><a href="rozdzialy/porady.html">Porady Eksperta</a></li>
+                <li><a href="rozdzialy/skorowidz.html">Skorowidz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="kontener-glowny">
+        <aside class="panel-boczny">
+            <h3>Szybki dostęp</h3>
+            <div class="lista-kategorii">
+                <a href="rozdzialy/podstawy.html#swiatlo" class="kategoria-link">
+                    <span class="ikona">☀️</span>
+                    <span>Światło</span>
+                </a>
+                <a href="rozdzialy/podstawy.html#podlewanie" class="kategoria-link">
+                    <span class="ikona">💧</span>
+                    <span>Podlewanie</span>
+                </a>
+                <a href="rozdzialy/podstawy.html#temperatura" class="kategoria-link">
+                    <span class="ikona">🌡️</span>
+                    <span>Temperatura</span>
+                </a>
+                <a href="rozdzialy/galeria.html" class="kategoria-link">
+                    <span class="ikona">🌺</span>
+                    <span>Galeria</span>
+                </a>
+                <a href="rozdzialy/kalkulator.html" class="kategoria-link">
+                    <span class="ikona">🔢</span>
+                    <span>Kalkulatory</span>
+                </a>
+            </div>
+
+            <div class="widgety-boczne">
+                <div class="widget">
+                    <h4>Roślina dnia</h4>
+                    <div id="roslina-dnia">
+                        <img src = "/obrazki/monstera.png" width="150px" height="150px">
+                        <p><strong>Monstera deliciosa</strong></p>
+                        <p class="opis-krotki">Idealna dla początkujących!</p>
+                    </div>
+                </div>
+
+                <div class="widget pogoda-widget">
+                    <h4>Warunki hodowlane</h4>
+                    <div id="aktualna-pogoda">
+                        <p>🌡️ Temperatura: <span id="temp-pokojowa">22°C</span></p>
+                        <p>💧 Wilgotność: <span id="wilgotnosc">55%</span></p>
+                        <p class="wskazowka" id="wskazowka-dnia"></p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="tresc-glowna">
+            <section class="sekcja-powitalna">
+                <h2>Witaj w świecie zieleni!</h2>
+                <p class="lead">Hodowla roślin doniczkowych to fascynujące hobby, które przynosi radość i relaks. Nasze rośliny nie tylko upiększają wnętrza, ale również oczyszczają powietrze i poprawiają nasze samopoczucie.</p>
+                
+                <div class="statystyki-container">
+                    <div class="statystyka" data-cel="50">
+                        <span class="liczba" id="stat1">0</span>
+                        <p>Opisanych gatunków</p>
+                    </div>
+                    <div class="statystyka" data-cel="30">
+                        <span class="liczba" id="stat2">0</span>
+                        <p>Zdjęć w galerii</p>
+                    </div>
+                    <div class="statystyka" data-cel="50">
+                        <span class="liczba" id="stat3">0</span>
+                        <p>Praktycznych porad</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="spis-tresci">
+                <h2>📚 Spis Treści</h2>
+                
+                <div class="rozdzia-karty">
+                    <div class="karta-rozdzialu">
+                        <div class="naglowek-karty">
+                            <span class="numer-rozdzialu">01</span>
+                            <h3>Podstawy Hodowli</h3>
+                        </div>
+                        <p>Poznaj fundamentalne zasady dbania o rośliny doniczkowe. Dowiesz się wszystkiego o podlewaniu, świetle, temperaturze i nawożeniu.</p>
+                        <ul class="lista-tematow">
+                            <li><a href="rozdzialy/podstawy.html#swiatlo">Wymagania świetlne różnych gatunków</a></li>
+                            <li><a href="rozdzialy/podstawy.html#podlewanie">Techniki podlewania</a></li>
+                            <li><a href="rozdzialy/podstawy.html#temperatura">Optymalne warunki termiczne</a></li>
+                            <li><a href="rozdzialy/podstawy.html#nawozenie">Nawożenie i odżywianie</a></li>
+                        </ul>
+                        <a href="rozdzialy/podstawy.html" class="przycisk-karty">Czytaj więcej →</a>
+                    </div>
+
+                    <div class="karta-rozdzialu">
+                        <div class="naglowek-karty">
+                            <span class="numer-rozdzialu">02</span>
+                            <h3>Galeria Roślin</h3>
+                        </div>
+                        <p>Obszerna galeria z ponad 500 zdjęciami najpopularniejszych roślin doniczkowych z dokładnymi opisami i wymaganiami hodowlanymi.</p>
+                        <ul class="lista-tematow">
+                            <li><a href="rozdzialy/galeria.html#latwe">Rośliny dla początkujących</a></li>
+                            <li><a href="rozdzialy/galeria.html#kwitnace">Rośliny kwitnące</a></li>
+                            <li><a href="rozdzialy/galeria.html#zielone">Rośliny zielone</a></li>
+                            <li><a href="rozdzialy/galeria.html#egzotyczne">Gatunki egzotyczne</a></li>
+                        </ul>
+                        <a href="rozdzialy/galeria.html" class="przycisk-karty">Zobacz galerię →</a>
+                    </div>
+
+                    <div class="karta-rozdzialu">
+                        <div class="naglowek-karty">
+                            <span class="numer-rozdzialu">03</span>
+                            <h3>Kalkulatory Hodowlane</h3>
+                        </div>
+                        <p>Praktyczne narzędzia obliczeniowe pomagające w codziennej pielęgnacji roślin - od kalkulatora podlewania po harmonogramy nawożenia.</p>
+                        <ul class="lista-tematow">
+                            <li><a href="rozdzialy/kalkulator.html#podlewanie">Kalkulator częstotliwości podlewania</a></li>
+                            <li><a href="rozdzialy/kalkulator.html#nawoz">Kalkulator dawki nawozu</a></li>
+                            <li><a href="rozdzialy/kalkulator.html#przesadzanie">Planowanie przesadzania</a></li>
+                            <li><a href="rozdzialy/kalkulator.html#swiatlo">Wymiar nasłonecznienia</a></li>
+                        </ul>
+                        <a href="rozdzialy/kalkulator.html" class="przycisk-karty">Użyj kalkulatorów →</a>
+                    </div>
+
+                    <div class="karta-rozdzialu">
+                        <div class="naglowek-karty">
+                            <span class="numer-rozdzialu">04</span>
+                            <h3>Porady Eksperta</h3>
+                        </div>
+                        <p>Zaawansowane techniki, rozwiązywanie problemów, choroby i szkodniki - wszystko czego potrzebujesz aby zostać ekspertem.</p>
+                        <ul class="lista-tematow">
+                            <li><a href="rozdzialy/porady.html#problemy">Diagnozowanie problemów</a></li>
+                            <li><a href="rozdzialy/porady.html#choroby">Atlas chorób roślin</a></li>
+                            <li><a href="rozdzialy/porady.html#rozmnazanie">Techniki rozmnażania</a></li>
+                            <li><a href="rozdzialy/porady.html#zaawansowane">Zaawansowana pielęgnacja</a></li>
+                        </ul>
+                        <a href="rozdzialy/porady.html" class="przycisk-karty">Poznaj porady →</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sekcja-wyszukiwanie">
+                <h2>🔍 Znajdź swoją idealną roślinę</h2>
+                <div class="panel-wyszukiwania">
+                    <input type="text" id="pole-wyszukiwania" placeholder="Wpisz nazwę rośliny, np. monstera, sukulenty...">
+                    <button id="przycisk-szukaj" onclick="wyszukajRosline()">Szukaj</button>
+                </div>
+                <div id="wyniki-wyszukiwania"></div>
+            </section>
+
+            <section class="sekcja-wskazowki">
+                <h2>💡 Czy wiesz że...</h2>
+                <div class="karuselka-wskazowek" id="karuselka-wskazowek">
+                    <div class="wskazowka-slajd aktywny">
+                        <p>Monstera deliciosa może żyć nawet 40 lat przy odpowiedniej pielęgnacji!</p>
+                    </div>
+                    <div class="wskazowka-slajd">
+                        <p>Sansewieria produkuje tlen w nocy, dlatego idealnie nadaje się do sypialni.</p>
+                    </div>
+                    <div class="wskazowka-slajd">
+                        <p>Żółknące liście to najczęściej objaw przelania, nie braku wody!</p>
+                    </div>
+                    <div class="wskazowka-slajd">
+                        <p>Fikus potrzebuje stałego miejsca - nie lubi przeprowadzek!</p>
+                    </div>
+                </div>
+                <div class="kontrolki-karuselki">
+                    <button onclick="zmienSlajd(-1)">❮</button>
+                    <button onclick="zmienSlajd(1)">❯</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="stopka-container">
+            <div class="kolumna-stopki">
+                <h4>O projekcie</h4>
+                <p>Kompleksowy poradnik hodowli roślin doniczkowych stworzony z pasji do zieleni.</p>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Nawigacja</h4>
+                <ul>
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="rozdzialy/skorowidz.html">Skorowidz</a></li>
+                    <li><a href="rozdzialy/galeria.html">Galeria</a></li>
+                </ul>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Kontakt</h4>
+                <p>📧 labuz.franciszek291@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Poradnik Hodowli Roślin. Projekt edukacyjny.</p>
+        </div>
+    </footer>
+
+    <button id="przycisk-gora" onclick="scrollDoGory()" title="Wróć na górę">↑</button>
+
+    <script src="./js/skrypty.js"></script>
+</body>
+</html>

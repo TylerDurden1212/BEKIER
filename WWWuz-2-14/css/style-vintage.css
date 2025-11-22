@@ -1,0 +1,1134 @@
+/* ============================================
+   STYL 2: RETRO NEWSPAPER - Vintage gazeta
+   ============================================ */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY - Papier gazetowy */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: #f5f1e8;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 3px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 3px);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animowane tło - Tekstura papieru */
+#animowane-tlo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.03;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="30" font-family="Georgia" font-size="80" fill="%23000000" opacity="0.05">📰</text></svg>');
+    background-size: 200px 200px;
+    animation: none;
+}
+
+@keyframes gradientAnimacja {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* HEADER - Nagłówek gazety */
+header {
+    background: #ffffff;
+    color: #000000;
+    padding: 2rem 0;
+    box-shadow: 0 2px 0 #000000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px double #000000;
+    border-top: 2px solid #000000;
+}
+
+.naglowek-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 1rem;
+}
+
+.naglowek-container h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: #000000;
+    animation: fadeInDown 1s ease;
+    line-height: 1.1;
+}
+
+.podtytul {
+    font-size: 1rem;
+    font-style: italic;
+    color: #333333;
+    animation: fadeInUp 1s ease 0.3s both;
+    font-weight: 400;
+    border-top: 1px solid #000000;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* MENU - Nawigacja gazety */
+#menu-glowne {
+    margin-top: 1rem;
+    border-top: 2px solid #000000;
+    padding-top: 1rem;
+}
+
+#menu-glowne ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+}
+
+#menu-glowne li {
+    margin: 0;
+    border-right: 1px solid #666666;
+}
+
+#menu-glowne li:first-child {
+    border-left: 1px solid #666666;
+}
+
+#menu-glowne a {
+    color: #000000;
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    display: block;
+    background: transparent;
+    transition: all 0.2s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#menu-glowne a:hover,
+#menu-glowne a.aktywny {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* KONTENER GŁÓWNY */
+.kontener-glowny {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+/* PANEL BOCZNY - Kolumna boczna gazety */
+.panel-boczny {
+    background: #ffffff;
+    border: 3px solid #000000;
+    padding: 1.5rem;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+    height: fit-content;
+    position: sticky;
+    top: 200px;
+}
+
+.panel-boczny h3 {
+    color: #000000;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px double #000000;
+    padding-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+.lista-kategorii {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 2rem;
+    border: 2px solid #000000;
+}
+
+.kategoria-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background: #f5f1e8;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #000000;
+}
+
+.kategoria-link:last-child {
+    border-bottom: none;
+}
+
+.kategoria-link:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.kategoria-link .ikona {
+    font-size: 1.5rem;
+    filter: grayscale(1);
+}
+
+/* WIDGETY */
+.widgety-boczne {
+    margin-top: 2rem;
+}
+
+.widget {
+    background: #ffffff;
+    padding: 1rem;
+    border: 2px solid #000000;
+    margin-bottom: 1.5rem;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.widget h4 {
+    color: #000000;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.3rem;
+    font-weight: 900;
+}
+
+#roslina-dnia img,
+.img-widget {
+    width: 100%;
+    border: 3px solid #000000;
+    margin-bottom: 0.5rem;
+    filter: grayscale(1) contrast(1.1);
+}
+
+.opis-krotki {
+    font-size: 0.9rem;
+    color: #333333;
+    font-style: italic;
+}
+
+.pogoda-widget {
+    background: #f5f1e8;
+}
+
+.wskazowka {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #444444;
+    margin-top: 0.5rem;
+}
+
+/* TREŚĆ GŁÓWNA */
+.tresc-glowna {
+    background: #ffffff;
+    border: 3px solid #000000;
+    padding: 2rem;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+}
+
+/* SEKCJE */
+.sekcja-powitalna {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px double #000000;
+}
+
+.sekcja-powitalna h2 {
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-style: italic;
+    border-left: 3px solid #000000;
+    padding-left: 1rem;
+}
+
+/* STATYSTYKI - Liczby gazety */
+.statystyki-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.statystyka {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.statystyka:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.statystyka .liczba {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+}
+
+.statystyka p {
+    color: #333333;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* SPIS TREŚCI */
+.spis-tresci {
+    margin: 3rem 0;
+}
+
+.spis-tresci h2 {
+    color: #000000;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    border-bottom: 3px double #000000;
+    padding-bottom: 0.5rem;
+}
+
+.rozdzia-karty {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.karta-rozdzialu {
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.karta-rozdzialu:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.naglowek-karty {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+.numer-rozdzialu {
+    background: #000000;
+    color: #ffffff;
+    padding: 0.3rem 0.8rem;
+    font-weight: 900;
+    font-size: 1.8rem;
+    font-family: 'Georgia', serif;
+}
+
+.karta-rozdzialu h3 {
+    color: #000000;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.karta-rozdzialu p {
+    color: #333333;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.lista-tematow {
+    list-style: none;
+    margin: 1rem 0;
+    border-left: 2px solid #000000;
+    padding-left: 1rem;
+}
+
+.lista-tematow li {
+    padding: 0.4rem 0;
+    border-bottom: 1px dotted #666666;
+}
+
+.lista-tematow li:last-child {
+    border-bottom: none;
+}
+
+.lista-tematow li::before {
+    content: "▶ ";
+    color: #000000;
+    font-weight: 900;
+}
+
+.lista-tematow a {
+    color: #000000;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.lista-tematow a:hover {
+    color: #666666;
+}
+
+.przycisk-karty {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.przycisk-karty:hover {
+    background: #333333;
+    transform: translateX(5px);
+}
+
+/* WYSZUKIWANIE */
+.sekcja-wyszukiwanie {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.sekcja-wyszukiwanie h2 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.panel-wyszukiwania {
+    display: flex;
+    gap: 0;
+    max-width: 600px;
+}
+
+#pole-wyszukiwania,
+.pole-wyszukiwania-galerii {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #000000;
+    background: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+}
+
+#pole-wyszukiwania:focus,
+.pole-wyszukiwania-galerii:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+#przycisk-szukaj,
+.przycisk-filtr {
+    padding: 0.8rem 1.5rem;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#przycisk-szukaj:hover,
+.przycisk-filtr:hover {
+    background: #333333;
+}
+
+.przycisk-filtr {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    margin: 0.3rem;
+}
+
+.przycisk-filtr.aktywny {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* KARUSELKA */
+.sekcja-wskazowki {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.sekcja-wskazowki h2 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.karuselka-wskazowek {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid #000000;
+    padding: 1rem;
+    background: #ffffff;
+}
+
+.wskazowka-slajd {
+    position: absolute;
+    width: calc(100% - 2rem);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    padding: 1rem;
+    font-style: italic;
+}
+
+.wskazowka-slajd.aktywny {
+    opacity: 1;
+}
+
+.kontrolki-karuselki {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.kontrolki-karuselki button {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    font-family: 'Georgia', serif;
+    font-weight: 900;
+}
+
+.kontrolki-karuselki button:hover {
+    background: #333333;
+}
+
+/* STOPKA */
+footer {
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+    border-top: 4px double #000000;
+}
+
+.stopka-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.kolumna-stopki h4 {
+    color: #000000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.3rem;
+    font-weight: 900;
+}
+
+.kolumna-stopki p {
+    color: #333333;
+    line-height: 1.7;
+}
+
+.kolumna-stopki ul {
+    list-style: none;
+}
+
+.kolumna-stopki li {
+    margin-bottom: 0.5rem;
+}
+
+.kolumna-stopki li::before {
+    content: "▶ ";
+    color: #000000;
+    font-weight: 900;
+}
+
+.kolumna-stopki a {
+    color: #000000;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.kolumna-stopki a:hover {
+    color: #666666;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #000000;
+    color: #666666;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* PRZYCISK GÓRA */
+#przycisk-gora {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #000000;
+    color: #ffffff;
+    border: 3px solid #000000;
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-family: 'Georgia', serif;
+    font-weight: 900;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+#przycisk-gora:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 rgba(0,0,0,0.3);
+}
+
+/* ANIMACJE */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GALERIA */
+.filtry-galerii {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.filtry-galerii h2 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+.przyciski-filtr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pasek-wyszukiwania {
+    margin-top: 1rem;
+}
+
+.kategoria-sekcja {
+    margin-bottom: 3rem;
+}
+
+.naglowek-kategorii {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    border-left-width: 8px;
+}
+
+.naglowek-kategorii h2 {
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.naglowek-kategorii p {
+    color: #333333;
+    font-style: italic;
+}
+
+.siatka-galerii {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.karta-rosliny {
+    background: #ffffff;
+    border: 3px solid #000000;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.karta-rosliny:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.karta-rosliny img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #000000;
+    margin-bottom: 1rem;
+    filter: grayscale(1) contrast(1.1);
+}
+
+.karta-rosliny h3 {
+    color: #000000;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.karta-rosliny .nazwa-lacinska {
+    color: #666666;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.wymagania-krotkie {
+    font-size: 0.85rem;
+    color: #333333;
+}
+
+.wymagania-krotkie strong {
+    color: #000000;
+    font-weight: 900;
+}
+
+/* MODAL */
+.modal-rosliny {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 241, 232, 0.95);
+}
+
+.zawartosc-modal {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 2rem;
+    border: 4px solid #000000;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
+}
+
+.przycisk-zamknij {
+    color: #000000;
+    float: right;
+    font-size: 2rem;
+    font-weight: 900;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.przycisk-zamknij:hover {
+    color: #666666;
+}
+
+.szczegoly-rosliny h2 {
+    color: #000000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 3px double #000000;
+    padding-bottom: 0.5rem;
+}
+
+.szczegoly-rosliny img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 1rem auto;
+    border: 3px solid #000000;
+    filter: grayscale(1) contrast(1.1);
+}
+
+.szczegoly-rosliny p,
+.szczegoly-rosliny ul {
+    color: #1a1a1a;
+    line-height: 1.8;
+}
+
+.szczegoly-rosliny strong {
+    color: #000000;
+    font-weight: 900;
+}
+
+/* KALKULATOR */
+.kalkulator-container,
+.kalkulator-kontener {
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.kalkulator-container h3,
+.kalkulator-kontener h3 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+.grupa-formularza,
+.formularz-kalkulatora label {
+    margin-bottom: 1.5rem;
+}
+
+.grupa-formularza label,
+.formularz-kalkulatora label {
+    display: block;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.grupa-formularza input,
+.grupa-formularza select,
+.formularz-kalkulatora input,
+.formularz-kalkulatora select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #000000;
+    background: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.grupa-formularza input:focus,
+.grupa-formularza select:focus,
+.formularz-kalkulatora input:focus,
+.formularz-kalkulatora select:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.przycisk-oblicz {
+    padding: 0.8rem 2rem;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.przycisk-oblicz:hover {
+    background: #333333;
+}
+
+.wynik-kalkulatora {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 3px solid #000000;
+    display: none;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.wynik-kalkulatora.widoczny {
+    display: block;
+}
+
+.wynik-kalkulatora h4 {
+    color: #000000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+.wynik-kalkulatora p {
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .kontener-glowny {
+        grid-template-columns: 1fr;
+    }
+    
+    .panel-boczny {
+        position: static;
+    }
+    
+    #menu-glowne ul {
+        flex-direction: column;
+    }
+    
+    #menu-glowne li {
+        border-right: none;
+        border-bottom: 1px solid #666666;
+    }
+    
+    .naglowek-container h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Dodatkowe elementy */
+.artykul-glowny,
+.sekcja-podstawy,
+.sekcja-porady,
+.sekcja-skorowidz {
+    color: #1a1a1a;
+}
+
+.artykul-glowny h2,
+.sekcja-podstawy h2,
+.sekcja-porady h2,
+.sekcja-skorowidz h2 {
+    color: #000000;
+    text-transform: uppercase;
+    margin: 2rem 0 1rem;
+    font-weight: 900;
+    border-bottom: 3px double #000000;
+    padding-bottom: 0.5rem;
+}
+
+.artykul-glowny h3,
+.sekcja-podstawy h3,
+.sekcja-porady h3 {
+    color: #000000;
+    margin: 1.5rem 0 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.artykul-glowny p,
+.sekcja-podstawy p,
+.sekcja-porady p {
+    color: #1a1a1a;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.karta-warunku {
+    background: #f5f1e8;
+    border: 3px solid #000000;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.karta-warunku h3 {
+    color: #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.ikona-duza {
+    font-size: 2.5rem;
+    filter: grayscale(1);
+}
+
+.lista-rozwiazan {
+    list-style: none;
+    border-left: 3px solid #000000;
+    padding-left: 1rem;
+}
+
+.lista-rozwiazan li::before {
+    content: "▶ ";
+    color: #000000;
+    font-weight: 900;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border: 3px solid #000000;
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+th {
+    background: #000000;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+td {
+    color: #1a1a1a;
+    background: #f5f1e8;
+}
+
+/* Skorowidz */
+.kolumny-mapy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.kolumna-mapy h3 {
+    color: #000000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+.lista-hasel {
+    list-style: none;
+}
+
+.lista-hasel li {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dotted #666666;
+    padding-bottom: 0.3rem;
+}
+
+.lista-hasel a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.lista-hasel a:hover {
+    text-decoration: underline;
+}
+
+.haslo {
+    color: #000000;
+    font-weight: 900;
+}

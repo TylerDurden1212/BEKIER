@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulatory Hodowlane - Poradnik</title>
+        <link rel="stylesheet" href="../css/style.css">
+    <!--<link rel="stylesheet" href="../css/style-ciemny.css">
+        <link rel="stylesheet" href="../css/style-vintage.css"> // WSZYSTKIE PLIKI CSS DO ZMIENIANIA
+        <link rel ="stylesheet" href ="../css/style-kolorowy.css"
+    -->
+</head>
+<body>
+    <div id="animowane-tlo"></div>
+    
+    <header>
+        <div class="naglowek-container">
+            <h1>🔢 Kalkulatory Hodowlane</h1>
+            <p class="podtytul">Praktyczne narzędzia do pielęgnacji roślin</p>
+        </div>
+        <nav id="menu-glowne">
+            <ul>
+                <li><a href="../index.html">Start</a></li>
+                <li><a href="podstawy.html">Podstawy</a></li>
+                <li><a href="galeria.html">Galeria Roślin</a></li>
+                <li><a href="kalkulator.html" class="aktywny">Kalkulatory</a></li>
+                <li><a href="porady.html">Porady Eksperta</a></li>
+                <li><a href="skorowidz.html">Skorowidz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="kontener-glowny" style="grid-template-columns: 1fr;">
+        <main class="tresc-glowna">
+            
+            <!-- KALKULATOR 1: Częstotliwość podlewania -->
+            <section id="podlewanie" class="kalkulator-kontener">
+                <div class="naglowek-kalkulatora">
+                    <div class="ikona-kalkulatora">💧</div>
+                    <div>
+                        <h2>Kalkulator Częstotliwości Podlewania</h2>
+                        <p>Oblicz jak często podlewać swoją roślinę</p>
+                    </div>
+                </div>
+                
+                <div class="formularz-kalkulatora">
+                    <div class="pole-formularza">
+                        <label>Typ rośliny:</label>
+                        <select id="typ-rosliny">
+                            <option value="sukulenty">Sukulenty i kaktusy</option>
+                            <option value="tropikalne" selected>Rośliny tropikalne</option>
+                            <option value="paprocie">Paprocie</option>
+                            <option value="kwitnace">Rośliny kwitnące</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Rozmiar doniczki (średnica w cm):</label>
+                        <div class="suwak-kontener">
+                            <input type="range" id="rozmiar-doniczki" min="10" max="40" value="20" oninput="aktualizujWartosc('rozmiar-doniczki', 'rozmiar-wartosc', ' cm')">
+                            <span class="suwak-wartosc" id="rozmiar-wartosc">20 cm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Temperatura w pomieszczeniu (°C):</label>
+                        <div class="suwak-kontener">
+                            <input type="range" id="temperatura" min="15" max="30" value="22" oninput="aktualizujWartosc('temperatura', 'temp-wartosc', '°C')">
+                            <span class="suwak-wartosc" id="temp-wartosc">22°C</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Wilgotność powietrza (%):</label>
+                        <div class="suwak-kontener">
+                            <input type="range" id="wilgotnosc" min="30" max="90" value="55" oninput="aktualizujWartosc('wilgotnosc', 'wilg-wartosc', '%')">
+                            <span class="suwak-wartosc" id="wilg-wartosc">55%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Nasłonecznienie:</label>
+                        <select id="naslonecznienie">
+                            <option value="slabe">Słabe (północne okno, daleko)</option>
+                            <option value="umiarkowane" selected>Umiarkowane (wschodnie/zachodnie)</option>
+                            <option value="mocne">Mocne (południowe, bezpośrednie słońce)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Pora roku:</label>
+                        <select id="pora-roku">
+                            <option value="wiosna">Wiosna</option>
+                            <option value="lato" selected>Lato</option>
+                            <option value="jesien">Jesień</option>
+                            <option value="zima">Zima</option>
+                        </select>
+                    </div>
+                    
+                    <button class="przycisk-oblicz" onclick="obliczPodlewanie()">Oblicz częstotliwość</button>
+                </div>
+                
+                <div id="wynik-podlewanie" class="wynik-kalkulatora"></div>
+            </section>
+
+            <!-- KALKULATOR 2: Dawka nawozu -->
+            <section id="nawoz" class="kalkulator-kontener">
+                <div class="naglowek-kalkulatora">
+                    <div class="ikona-kalkulatora">🌱</div>
+                    <div>
+                        <h2>Kalkulator Dawki Nawozu</h2>
+                        <p>Oblicz ile nawozu potrzebujesz</p>
+                    </div>
+                </div>
+                
+                <div class="formularz-kalkulatora">
+                    <div class="pole-formularza">
+                        <label>Pojemność doniczki (litry):</label>
+                        <input type="number" id="pojemnosc-doniczki" min="0.5" max="50" step="0.5" value="3">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Stężenie nawozu na etykiecie (ml/litr wody):</label>
+                        <input type="number" id="stezenie-nawozu" min="1" max="20" step="0.5" value="5">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Jak często chcesz nawozić:</label>
+                        <select id="czestotliwosc-nawoz">
+                            <option value="7">Co tydzień</option>
+                            <option value="14" selected>Co 2 tygodnie</option>
+                            <option value="21">Co 3 tygodnie</option>
+                            <option value="30">Co miesiąc</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Typ rośliny:</label>
+                        <select id="typ-rosliny-nawoz">
+                            <option value="1">Rośliny zielone (standard)</option>
+                            <option value="1.2">Rośliny kwitnące (więcej)</option>
+                            <option value="0.5">Sukulenty (mniej)</option>
+                            <option value="0.8">Rośliny młode (mniej)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="przycisk-oblicz" onclick="obliczNawoz()">Oblicz dawkę</button>
+                </div>
+                
+                <div id="wynik-nawoz" class="wynik-kalkulatora"></div>
+            </section>
+
+            <!-- KALKULATOR 3: Planowanie przesadzania -->
+            <section id="przesadzanie" class="kalkulator-kontener">
+                <div class="naglowek-kalkulatora">
+                    <div class="ikona-kalkulatora">🪴</div>
+                    <div>
+                        <h2>Kalkulator Przesadzania</h2>
+                        <p>Sprawdź kiedy i jak przesadzić roślinę</p>
+                    </div>
+                </div>
+                
+                <div class="formularz-kalkulatora">
+                    <div class="pole-formularza">
+                        <label>Obecna średnica doniczki (cm):</label>
+                        <input type="number" id="obecna-doniczka" min="5" max="50" value="15">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Szybkość wzrostu rośliny:</label>
+                        <select id="szybkosc-wzrostu">
+                            <option value="wolny">Wolny wzrost (kaktusy, sukulenty)</option>
+                            <option value="umiarkowany" selected>Umiarkowany (większość roślin)</option>
+                            <option value="szybki">Szybki (pothos, monstera, filodendron)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Ile czasu od ostatniego przesadzenia (miesiące):</label>
+                        <input type="number" id="czas-od-przesadzenia" min="0" max="60" value="12">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Objawy wymagające przesadzenia:</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                            <label><input type="checkbox" id="objaw-korzenie"> Korzenie wystają przez otwory</label>
+                            <label><input type="checkbox" id="objaw-szybkie"> Szybko przesycha ziemia</label>
+                            <label><input type="checkbox" id="objaw-wzrost"> Zahamowany wzrost</label>
+                            <label><input type="checkbox" id="objaw-stabilnosc"> Roślina przewraca się</label>
+                        </div>
+                    </div>
+                    
+                    <button class="przycisk-oblicz" onclick="obliczPrzesadzanie()">Sprawdź potrzebę przesadzenia</button>
+                </div>
+                
+                <div id="wynik-przesadzanie" class="wynik-kalkulatora"></div>
+            </section>
+
+            <!-- KALKULATOR 4: Wymiar nasłonecznienia -->
+            <section id="swiatlo" class="kalkulator-kontener">
+                <div class="naglowek-kalkulatora">
+                    <div class="ikona-kalkulatora">☀️</div>
+                    <div>
+                        <h2>Kalkulator Nasłonecznienia</h2>
+                        <p>Określ ilość światła w Twoim pomieszczeniu</p>
+                    </div>
+                </div>
+                
+                <div class="formularz-kalkulatora">
+                    <div class="pole-formularza">
+                        <label>Orientacja okna:</label>
+                        <select id="orientacja-okna">
+                            <option value="polnocne">Północne</option>
+                            <option value="wschodnie">Wschodnie</option>
+                            <option value="poludniowe">Południowe</option>
+                            <option value="zachodnie">Zachodnie</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Odległość rośliny od okna (m):</label>
+                        <div class="suwak-kontener">
+                            <input type="range" id="odleglosc-okno" min="0" max="5" step="0.5" value="1" oninput="aktualizujWartosc('odleglosc-okno', 'odl-wartosc', ' m')">
+                            <span class="suwak-wartosc" id="odl-wartosc">1 m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Zasłonięcie okna:</label>
+                        <select id="zasloniecie">
+                            <option value="brak">Brak (pełne słońce)</option>
+                            <option value="cienka">Cienka firanka</option>
+                            <option value="gruba" selected>Gruba firanka/roleta</option>
+                            <option value="drzewo">Drzewo za oknem</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Piętro/wysokość:</label>
+                        <select id="pietro">
+                            <option value="parter">Parter</option>
+                            <option value="1-3" selected>1-3 piętro</option>
+                            <option value="4+">4+ piętro</option>
+                        </select>
+                    </div>
+                    
+                    <button class="przycisk-oblicz" onclick="obliczNaslonecznienie()">Oblicz poziom światła</button>
+                </div>
+                
+                <div id="wynik-naslonecznienie" class="wynik-kalkulatora"></div>
+            </section>
+
+            <!-- KALKULATOR 5: Harmonogram pielęgnacji -->
+            <section id="harmonogram" class="kalkulator-kontener">
+                <div class="naglowek-kalkulatora">
+                    <div class="ikona-kalkulatora">📅</div>
+                    <div>
+                        <h2>Generator Harmonogramu Pielęgnacji</h2>
+                        <p>Stwórz plan pielęgnacji na cały miesiąc</p>
+                    </div>
+                </div>
+                
+                <div class="formularz-kalkulatora">
+                    <div class="pole-formularza">
+                        <label>Liczba roślin do pielęgnacji:</label>
+                        <input type="number" id="liczba-roslin" min="1" max="50" value="5">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Częstotliwość podlewania (dni):</label>
+                        <input type="number" id="czest-podlew-harm" min="2" max="21" value="7">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label>Częstotliwość nawożenia (dni):</label>
+                        <input type="number" id="czest-nawoz-harm" min="7" max="30" value="14">
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label><input type="checkbox" id="czy-opryskiwanie"> Regularne opryskiwanie (co 2-3 dni)</label>
+                    </div>
+                    
+                    <div class="pole-formularza">
+                        <label><input type="checkbox" id="czy-czyszczenie"> Czyszczenie liści (co tydzień)</label>
+                    </div>
+                    
+                    <button class="przycisk-oblicz" onclick="generujHarmonogram()">Wygeneruj harmonogram</button>
+                </div>
+                
+                <div id="wynik-harmonogram" class="wynik-kalkulatora"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="stopka-container">
+            <div class="kolumna-stopki">
+                <h4>O projekcie</h4>
+                <p>Kompleksowy poradnik hodowli roślin doniczkowych stworzony z pasją do zieleni.</p>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Nawigacja</h4>
+                <ul>
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="skorowidz.html">Skorowidz</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                </ul>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Kontakt</h4>
+                <p>📧 kontakt@roslinydomowe.pl</p>
+                <p>🌐 www.roslinydomowe.pl</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Poradnik Hodowli Roślin. Projekt edukacyjny.</p>
+        </div>
+    </footer>
+
+    <button id="przycisk-gora" onclick="scrollDoGory()" title="Wróć na górę">↑</button>
+
+    <script src="../js/skrypty.js"></script>
+    <script src="../js/kalkulator-skrypty.js"></script>
+</body>
+</html>
