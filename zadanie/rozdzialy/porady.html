@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porady Eksperta - Poradnik Roślin</title>
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+    <div id="animowane-tlo"></div>
+    
+    <header>
+        <div class="naglowek-container">
+            <h1>🎓 Porady Eksperta</h1>
+            <p class="podtytul">Rozwiązywanie problemów i zaawansowana pielęgnacja</p>
+        </div>
+        <nav id="menu-glowne">
+            <ul>
+                <li><a href="../index.html">Start</a></li>
+                <li><a href="podstawy.html">Podstawy</a></li>
+                <li><a href="galeria.html">Galeria Roślin</a></li>
+                <li><a href="kalkulator.html">Kalkulatory</a></li>
+                <li><a href="porady.html" class="aktywny">Porady Eksperta</a></li>
+                <li><a href="skorowidz.html">Skorowidz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="kontener-glowny" style="grid-template-columns: 1fr;">
+        <main class="tresc-glowna">
+            
+            <section id="problemy">
+                <h2>🔍 Najczęstsze Problemy i Rozwiązania</h2>
+                <p class="lead">Kliknij na problem aby zobaczyć szczegółowe rozwiązanie</p>
+                
+                <div class="karta-problemu" onclick="pokazSzczegoly(this)">
+                    <div class="naglowek-problemu">
+                        <span class="ikona-problemu">🍂</span>
+                        <div>
+                            <h3>Żółte liście</h3>
+                            <p>Liście żółkną i opadają</p>
+                        </div>
+                    </div>
+                    <div class="szczegoly-problemu">
+                        <p><strong>Przyczyny:</strong></p>
+                        <ul>
+                            <li>Przelanie (najczęstsza przyczyna)</li>
+                            <li>Niedobór azotu</li>
+                            <li>Zbyt mało światła</li>
+                            <li>Naturalny proces starzenia dolnych liści</li>
+                        </ul>
+                        <div class="lista-rozwiazan">
+                            <h4>✅ Rozwiązania:</h4>
+                            <ol>
+                                <li>Sprawdź wilgotność podłoża - jeśli mokre, ogranicz podlewanie</li>
+                                <li>Upewnij się że doniczka ma drenaz i nie stoi w wodzie</li>
+                                <li>Zastosuj nawóz z azotem jeśli żółkną młode liście</li>
+                                <li>Przenieś roślinę bliżej okna</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="karta-problemu" onclick="pokazSzczegoly(this)">
+                    <div class="naglowek-problemu">
+                        <span class="ikona-problemu">🔥</span>
+                        <div>
+                            <h3>Brązowe końcówki liści</h3>
+                            <p>Suche, brązowe końce lub brzegi liści</p>
+                        </div>
+                    </div>
+                    <div class="szczegoly-problemu">
+                        <p><strong>Przyczyny:</strong></p>
+                        <ul>
+                            <li>Za suche powietrze</li>
+                            <li>Nieregularne podlewanie</li>
+                            <li>Nadmiar soli mineralnych w wodzie lub nawozie</li>
+                            <li>Oparzenia słoneczne</li>
+                        </ul>
+                        <div class="lista-rozwiazan">
+                            <h4>✅ Rozwiązania:</h4>
+                            <ol>
+                                <li>Zwiększ wilgotność powietrza (opryskiwanie, nawilżacz)</li>
+                                <li>Podlewaj regularnie, unikaj przesuszania</li>
+                                <li>Używaj odstałej wody, przepłucz podłoże czystą wodą</li>
+                                <li>Przycięty brązowe końcówki ostrym nożem</li>
+                                <li>Ogranicz nawożenie do połowy zalecanej dawki</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="karta-problemu" onclick="pokazSzczegoly(this)">
+                    <div class="naglowek-problemu">
+                        <span class="ikona-problemu">🕷️</span>
+                        <div>
+                            <h3>Szkodniki - przędziorki, mszyce</h3>
+                            <p>Widoczne owady lub pajęczyny na roślinie</p>
+                        </div>
+                    </div>
+                    <div class="szczegoly-problemu">
+                        <p><strong>Rodzaje szkodników:</strong></p>
+                        <ul>
+                            <li><strong>Przędziorki:</strong> drobne pajęczyny, żółte kropki na liściach</li>
+                            <li><strong>Mszyce:</strong> małe zielone/czarne owady na młodych pędach</li>
+                            <li><strong>Wełnowce:</strong> białe, wacikowe skupiska</li>
+                            <li><strong>Tarczniki:</strong> brązowe, owalne pancerzyki</li>
+                        </ul>
+                        <div class="lista-rozwiazan">
+                            <h4>✅ Rozwiązania:</h4>
+                            <ol>
+                                <li>Odizoluj zaatakowaną roślinę od innych</li>
+                                <li>Przedziorki: natrysk mydłem szarym lub oprysk preparatem</li>
+                                <li>Mszyce: spłucz prysznicem, użyj mydła lub preparatu</li>
+                                <li>Zwiększ wilgotność - przędziorki nie lubią wilgoci</li>
+                                <li>Regularnie kontroluj rośliny - wcześnie wykryte łatwiej zwalczyć</li>
+                                <li>Naturalne metody: napar z czosnku, pokrzywy</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="karta-problemu" onclick="pokazSzczegoly(this)">
+                    <div class="naglowek-problemu">
+                        <span class="ikona-problemu">🦠</span>
+                        <div>
+                            <h3>Choroby grzybiczne</h3>
+                            <p>Pleśń, szara pleśń, gnicie korzeni</p>
+                        </div>
+                    </div>
+                    <div class="szczegoly-problemu">
+                        <p><strong>Objawy:</strong></p>
+                        <ul>
+                            <li>Biały nalot na liściach lub ziemi (mączniak)</li>
+                            <li>Szary puch na liściach (szara pleśń)</li>
+                            <li>Czarne lub brązowe plamy</li>
+                            <li>Gnijące, miękkie korzenie</li>
+                        </ul>
+                        <div class="lista-rozwiazan">
+                            <h4>✅ Rozwiązania:</h4>
+                            <ol>
+                                <li>Usuń zainfekowane części rośliny</li>
+                                <li>Zmniejsz podlewanie i wilgotność</li>
+                                <li>Zapewnij lepszą wentylację</li>
+                                <li>Zastosuj preparat przeciwgrzybiczy</li>
+                                <li>W przypadku gnicia korzeni - przesadź do świeżej ziemi</li>
+                                <li>Nie opryskuj liści jeśli występuje pleśń</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="quiz" class="quiz-kontener">
+                <h2>🧠 Quiz wiedzy o roślinach</h2>
+                <p>Sprawdź swoją wiedzę!</p>
+                
+                <div id="quiz-pytania">
+                    <div class="pytanie-quiz">
+                        <h3>Pytanie 1: Co oznaczają żółte liście u rośliny?</h3>
+                        <div class="odpowiedzi-quiz">
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
+                                A) Najczęściej przelanie
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                B) Zawsze brak wody
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                C) Za dużo światła
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pytanie-quiz">
+                        <h3>Pytanie 2: Jak często należy nawozić rośliny zimą?</h3>
+                        <div class="odpowiedzi-quiz">
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                A) Tak samo jak latem
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
+                                B) W ogóle lub znacznie rzadziej
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                C) Częściej niż latem
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pytanie-quiz">
+                        <h3>Pytanie 3: Która roślina najlepiej oczyszcza powietrze?</h3>
+                        <div class="odpowiedzi-quiz">
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                A) Kaktus
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, true)">
+                                B) Skrzydłokwiat
+                            </div>
+                            <div class="odpowiedz" onclick="sprawdzOdpowiedz(this, false)">
+                                C) Begonia
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="wynik-quiz" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 8px;">
+                    <h3>🎉 Twój wynik: <span id="punkty-quiz">0</span>/3</h3>
+                    <p id="ocena-quiz"></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="stopka-container">
+            <div class="kolumna-stopki">
+                <h4>O projekcie</h4>
+                <p>Kompleksowy poradnik hodowli roślin doniczkowych stworzony z pasją do zieleni.</p>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Nawigacja</h4>
+                <ul>
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="skorowidz.html">Skorowidz</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                </ul>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Kontakt</h4>
+                <p>📧 kontakt@roslinydomowe.pl</p>
+                <p>🌐 www.roslinydomowe.pl</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Poradnik Hodowli Roślin. Projekt edukacyjny.</p>
+        </div>
+    </footer>
+
+    <button id="przycisk-gora" onclick="scrollDoGory()" title="Wróć na górę">↑</button>
+
+    <script src="../skrypty.js"></script>
+    <script>
+        function pokazSzczegoly(element) {
+            const szczegoly = element.querySelector('.szczegoly-problemu');
+            szczegoly.classList.toggle('widoczne');
+        }
+        
+        let poprawneOdpowiedzi = 0;
+        let udzieloneOdpowiedzi = 0;
+        
+        function sprawdzOdpowiedz(element, czyPoprawna) {
+            const rodzic = element.parentElement;
+            const wszystkieOdpowiedzi = rodzic.querySelectorAll('.odpowiedz');
+            
+            // Jeśli już odpowiedziano, nie reaguj
+            if (element.classList.contains('poprawna') || element.classList.contains('bledna')) {
+                return;
+            }
+            
+            // Zablokuj wszystkie odpowiedzi w tym pytaniu
+            wszystkieOdpowiedzi.forEach(odp => {
+                odp.style.pointerEvents = 'none';
+            });
+            
+            if (czyPoprawna) {
+                element.classList.add('poprawna');
+                poprawneOdpowiedzi++;
+            } else {
+                element.classList.add('bledna');
+                // Pokaż poprawną odpowiedź
+                wszystkieOdpowiedzi.forEach(odp => {
+                    if (odp.onclick.toString().includes('true')) {
+                        odp.classList.add('poprawna');
+                    }
+                });
+            }
+            
+            udzieloneOdpowiedzi++;
+            
+            // Jeśli wszystkie pytania odpowiedziane, pokaż wynik
+            if (udzieloneOdpowiedzi === 3) {
+                pokazWynikQuizu();
+            }
+        }
+        
+        function pokazWynikQuizu() {
+            const wynikDiv = document.getElementById('wynik-quiz');
+            const punktySpan = document.getElementById('punkty-quiz');
+            const ocenaP = document.getElementById('ocena-quiz');
+            
+            punktySpan.textContent = poprawneOdpowiedzi;
+            
+            let ocena;
+            if (poprawneOdpowiedzi === 3) {
+                ocena = 'Doskonale! Jesteś ekspertem od roślin! 🌟';
+            } else if (poprawneOdpowiedzi === 2) {
+                ocena = 'Bardzo dobrze! Znasz się na rzeczy! 👍';
+            } else if (poprawneOdpowiedzi === 1) {
+                ocena = 'Nieźle, ale warto jeszcze poczytać! 📚';
+            } else {
+                ocena = 'Warto przejrzeć poradnik od początku! 🌱';
+            }
+            
+            ocenaP.textContent = ocena;
+            wynikDiv.style.display = 'block';
+            wynikDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>

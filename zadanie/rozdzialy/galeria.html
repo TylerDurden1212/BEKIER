@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Ro艣lin - Poradnik</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .filtry-galerii {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .przyciski-filtr {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .przycisk-filtr {
+            padding: 0.7rem 1.5rem;
+            background: #f1f8e9;
+            border: 2px solid #c5e1a5;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #2e7d32;
+        }
+        
+        .przycisk-filtr:hover {
+            background: #dcedc8;
+            transform: translateY(-2px);
+        }
+        
+        .przycisk-filtr.aktywny {
+            background: #43a047;
+            color: white;
+            border-color: #43a047;
+        }
+        
+        .pasek-wyszukiwania {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .pole-wyszukiwania-galerii {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #c5e1a5;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .siatka-galerii {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .karta-rosliny {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .karta-rosliny:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .obrazek-rosliny {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .tresc-karty {
+            padding: 1.2rem;
+        }
+        
+        .tresc-karty h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .nazwa-lacinska {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .etykiety-rosliny {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .etykieta {
+            padding: 0.3rem 0.8rem;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .etykieta.latwe {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+        
+        .etykieta.srednie {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+        
+        .etykieta.trudne {
+            background: #ffccbc;
+            color: #d84315;
+        }
+        
+        .wymagania-skrot {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .modal-rosliny {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            overflow-y: auto;
+        }
+        
+        .zawartosc-modal {
+            background: white;
+            margin: 2% auto;
+            padding: 2rem;
+            max-width: 800px;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .przycisk-zamknij {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .przycisk-zamknij:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .szczegoly-rosliny {
+            margin-top: 1.5rem;
+        }
+        
+        .obrazek-modal {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+        
+        .tabela-szczegoly {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+        }
+        
+        .tabela-szczegoly th {
+            background: #f1f8e9;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            color: #2e7d32;
+            width: 40%;
+        }
+        
+        .tabela-szczegoly td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .kategoria-sekcja {
+            margin: 3rem 0;
+        }
+        
+        .naglowek-kategorii {
+            background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 0;
+        }
+        
+        .zawartosc-kategorii {
+            background: white;
+            padding: 2rem;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .licznik-wynikow {
+            text-align: center;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div id="animowane-tlo"></div>
+    
+    <header>
+        <div class="naglowek-container">
+            <h1>馃尯 Galeria Ro艣lin Doniczkowych</h1>
+            <p class="podtytul">Ponad 30 opisanych gatunk贸w ze szczeg贸艂owymi wymaganiami</p>
+        </div>
+        <nav id="menu-glowne">
+            <ul>
+                <li><a href="../index.html">Start</a></li>
+                <li><a href="podstawy.html">Podstawy</a></li>
+                <li><a href="galeria.html" class="aktywny">Galeria Ro艣lin</a></li>
+                <li><a href="kalkulator.html">Kalkulatory</a></li>
+                <li><a href="porady.html">Porady Eksperta</a></li>
+                <li><a href="skorowidz.html">Skorowidz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="kontener-glowny" style="grid-template-columns: 1fr;">
+        <main class="tresc-glowna">
+            <div class="filtry-galerii">
+                <h2>馃攳 Filtruj i wyszukuj</h2>
+                
+                <div class="przyciski-filtr">
+                    <button class="przycisk-filtr aktywny" onclick="filtrujRosliny('wszystkie')">
+                        Wszystkie ro艣liny
+                    </button>
+                    <button class="przycisk-filtr" onclick="filtrujRosliny('latwe')">
+                        艁atwe w uprawie
+                    </button>
+                    <button class="przycisk-filtr" onclick="filtrujRosliny('kwitnace')">
+                        Ro艣liny kwitn膮ce
+                    </button>
+                    <button class="przycisk-filtr" onclick="filtrujRosliny('zielone')">
+                        Ro艣liny zielone
+                    </button>
+                    <button class="przycisk-filtr" onclick="filtrujRosliny('sukulenty')">
+                        Sukulenty
+                    </button>
+                    <button class="przycisk-filtr" onclick="filtrujRosliny('oczyszczajace')">
+                        Oczyszczaj膮ce powietrze
+                    </button>
+                </div>
+                
+                <div class="pasek-wyszukiwania">
+                    <input type="text" 
+                           class="pole-wyszukiwania-galerii" 
+                           id="wyszukiwanie-galeriii" 
+                           placeholder="Wpisz nazw臋 ro艣liny..."
+                           onkeyup="wyszukajWGalerii()">
+                </div>
+                
+                <div id="licznik-wynikow" class="licznik-wynikow" style="display:none;"></div>
+            </div>
+
+            <section id="latwe" class="kategoria-sekcja">
+                <div class="naglowek-kategorii">
+                    <h2>馃尡 Ro艣liny Dla Pocz膮tkuj膮cych</h2>
+                    <p>Wytrzyma艂e gatunki, kt贸re wybaczaj膮 pocz膮tkowe b艂臋dy</p>
+                </div>
+                <div class="zawartosc-kategorii">
+                    <div class="siatka-galerii" id="siatka-latwe"></div>
+                </div>
+            </section>
+
+            <section id="kwitnace" class="kategoria-sekcja">
+                <div class="naglowek-kategorii">
+                    <h2>馃尭 Ro艣liny Kwitn膮ce</h2>
+                    <p>Pi臋kne kwiaty, kt贸re urozmaic膮 Twoje wn臋trze</p>
+                </div>
+                <div class="zawartosc-kategorii">
+                    <div class="siatka-galerii" id="siatka-kwitnace"></div>
+                </div>
+            </section>
+
+            <section id="zielone" class="kategoria-sekcja">
+                <div class="naglowek-kategorii">
+                    <h2>馃崈 Ro艣liny Zielone</h2>
+                    <p>Dekoracyjne li艣cie w r贸偶nych kszta艂tach i odcieniach</p>
+                </div>
+                <div class="zawartosc-kategorii">
+                    <div class="siatka-galerii" id="siatka-zielone"></div>
+                </div>
+            </section>
+
+            <section id="egzotyczne" class="kategoria-sekcja">
+                <div class="naglowek-kategorii">
+                    <h2>馃尨 Ro艣liny Egzotyczne</h2>
+                    <p>Nietypowe gatunki dla bardziej do艣wiadczonych</p>
+                </div>
+                <div class="zawartosc-kategorii">
+                    <div class="siatka-galerii" id="siatka-egzotyczne"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal ze szczeg贸艂ami ro艣liny -->
+    <div id="modal-rosliny" class="modal-rosliny" onclick="zamknijModal(event)">
+        <div class="zawartosc-modal" onclick="event.stopPropagation()">
+            <button class="przycisk-zamknij" onclick="zamknijModal()">&times;</button>
+            <div id="tresc-modal"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="stopka-container">
+            <div class="kolumna-stopki">
+                <h4>O projekcie</h4>
+                <p>Kompleksowy poradnik hodowli ro艣lin doniczkowych stworzony z pasj膮 do zieleni.</p>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Nawigacja</h4>
+                <ul>
+                    <li><a href="../index.html">Strona g艂贸wna</a></li>
+                    <li><a href="skorowidz.html">Skorowidz</a></li>
+                    <li><a href="kalkulator.html">Kalkulatory</a></li>
+                </ul>
+            </div>
+            <div class="kolumna-stopki">
+                <h4>Kontakt</h4>
+                <p>馃摟 labuz.franciszek291@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Poradnik Hodowli Ro艣lin. Projekt edukacyjny.</p>
+        </div>
+    </footer>
+
+    <button id="przycisk-gora" onclick="scrollDoGory()" title="Wr贸膰 na g贸r臋">鈫�</button>
+
+    <script src="../skrypty.js"></script>
+    <script src="galeria-skrypty.js"></script>
+</body>
+</html>
